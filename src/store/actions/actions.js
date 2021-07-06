@@ -13,3 +13,10 @@ export const getMealsFromCategory = category => {
         payload: category
     }
 };
+
+export const getSingleMeal = meal => {
+    return {
+        type: actionTypes.GET_MEAL,
+        payload: meal
+    }
+};

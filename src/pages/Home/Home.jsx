@@ -21,7 +21,6 @@ const Home = (props) => {
             if(response.data.categories) {
                 dispatch(getFoodCategories(response.data.categories));
             }
-            console.log(response.data.categories)
         })
         .catch(error => console.log(error));
     }, [dispatch]);

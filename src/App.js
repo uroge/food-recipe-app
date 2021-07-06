@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 
 import Home from './pages/Home/Home';
 import Category from './pages/Category/Category';
+import SingleMeal from './pages/SingleMeal/SingleMeal';
 
 import history from './history';
 
@@ -24,6 +25,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact render={() => (<Home refAbout={aboutRef} refContact={contactRef}/>)} />
         <Route path="/category/:title" exact component={Category} />
+        <Route path="/category/:title/:id" exact component={SingleMeal} />
       </Switch>
       <Footer />
     </Router>

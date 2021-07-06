@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     foodCategories: [],
-    mealsFromCategory: []
+    mealsFromCategory: [],
+    singleMeal: null
 }
 
 const foodReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const foodReducer = (state = initialState, action) => {
             return {
                 ...state,
                 mealsFromCategory: [...action.payload]
+            }
+        case actionTypes.GET_MEAL:
+            return {
+                ...state,
+                singleMeal: action.payload
             }
         default:
             return state;

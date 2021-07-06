@@ -1,0 +1,65 @@
+@import "../../sass/base/variables";
+@import "../../sass/base/mixins";
+
+.single-meal {
+  padding: 2rem 5rem;
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  &__preview {
+    display: flex;
+    justify-content: space-between;
+
+    &-image {
+      width: 35%;
+      padding-top: 10%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-description {
+      width: 60%;
+
+      span {
+        font-weight: 700;
+      }
+
+      .video {
+        text-decoration: none;
+        color: $color-blue-light-1;
+
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+
+  &__ingredients {
+    display: flex;
+    margin: 3rem 0;
+
+    div {
+      &:not(:last-child) {
+        margin-right: 5rem;
+      }
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  p {
+    font-size: 1.4rem;
+  }
+}
