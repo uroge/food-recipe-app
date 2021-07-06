@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
 
-function App() {
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+
+import Home from './pages/Home/Home';
+import Category from './pages/Category/Category';
+
+import history from './history';
+
+const App = () => {
+  const aboutRef = React.createRef();
+  const contactRef = React.createRef();
+
+  const scrollToAbout = () => aboutRef.current.scrollIntoView();
+  const scrollToContact = () => contactRef.current.scrollIntoView();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      <Header
+      aboutScroll={scrollToAbout}
+      contactScroll={scrollToContact} />
+      <Switch>
+        <Route path="/" exact render={() => (<Home refAbout={aboutRef} refContact={contactRef}/>)} />
+        <Route path="/category/:title" exact component={Category} />
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 

@@ -1,0 +1,72 @@
+@import "../../sass/base/variables";
+@import "../../sass/base/mixins";
+
+.form {
+  text-align: center;
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+  ::placeholder {
+    color: $color-blue;
+    font-family: inherit;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    width: 50%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-family: inherit;
+    border-radius: 3px;
+    color: $color-blue;
+    border: 1px solid $color-blue-light-1;
+
+    @include respond(tab-medium) {
+      width: 70%;
+    }
+
+    @include respond(phone) {
+      width: 90%;
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+      color: $color-blue;
+    }
+  }
+
+  textarea {
+    width: 50%;
+    margin-bottom: 2rem;
+    height: 8rem;
+    padding: 1rem;
+    border-radius: 3px;
+    color: $color-blue;
+    border: 1px solid $color-blue-light-1;
+    font-family: inherit;
+
+    @include respond(tab-medium) {
+      width: 70%;
+    }
+
+    @include respond(phone) {
+      width: 90%;
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+      color: $color-blue;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../sass/base/mixins";
+
+.about-us {
+  margin-top: 8rem;
+  @include respond(tab-x-small) {
+    margin-top: 5rem;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 5rem 0;
+
+    @include respond(tab-x-small) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__text {
+    width: 50%;
+    margin-right: 2rem;
+
+    @include respond(tab-x-small) {
+      width: 100%;
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 30%;
+    width: 50%;
+    border-radius: 5px;
+
+    @include respond(tab-x-small) {
+      width: 100%;
+      padding-top: 50%;
+    }
+  }
+}

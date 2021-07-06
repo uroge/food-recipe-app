@@ -1,0 +1,21 @@
+@import "../../sass/base/variables";
+
+.custom-button {
+  padding: 0.5rem 1rem;
+  background-color: $color-blue-light-2;
+  border: 1px solid $color-blue;
+  border-radius: 3px;
+  color: $color-blue;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-1px);
+    background-color: $color-blue-light-1;
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(1px);
+  }
+}

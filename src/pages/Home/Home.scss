@@ -1,0 +1,9 @@
+@import "../../sass/base/mixins";
+
+.homepage {
+  padding: 2rem 5rem;
+
+  @include respond(phone) {
+    padding: 1rem 2.4rem;
+  }
+}
