@@ -9,13 +9,13 @@
   margin-bottom: 8rem;
 
   @include respond(tab-medium) {
-    width: 33.33%;
+    width: 31%;
     padding-top: 20%;
   }
 
   @include respond(phone) {
-    width: 50%;
-    padding-top: 30%;
+    width: 48%;
+    padding-top: 33%;
   }
 
   @include respond(phone-small) {
@@ -58,10 +58,15 @@
     width: 100%;
     text-align: center;
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
 
     .name {
       width: 80%;
       margin-bottom: 15px;
+      font-size: 1.8rem;
+      line-height: 1.9rem;
     }
   }
 }

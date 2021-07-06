@@ -14,7 +14,7 @@ const SingleCategory = ({ title, image, link }) => {
         />
         <Link to={link} className="single-category__link">
             <div className="single-category__footer">
-                <span className="name">{title}</span>
+                <p className="name">{title}</p>
             </div>
         </Link>
     </div>);

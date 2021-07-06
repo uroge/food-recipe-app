@@ -1,7 +1,9 @@
+@import "../../sass/base/mixins";
+
 .meals {
   &__preview {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
 }
