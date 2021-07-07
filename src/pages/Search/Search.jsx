@@ -5,9 +5,9 @@ import { getSearchedMeals } from '../../store/actions/actions';
 
 import './Search.scss';
 
-import SingleCategory from '../../components/CategoriesPreview/SingleCategory/SingleCategory';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Meals from '../../components/Meals/Meals';
+import Recommended from '../../components/Recommended/Recommended';
 
 const Search = (props) => {
     const searchTerm = props.match.params.searchTerm;
@@ -21,7 +21,6 @@ const Search = (props) => {
         axios.get(`/search.php?s=${searchTerm}`)
         .then(response => {
             dispatch(getSearchedMeals(response.data.meals));
-            console.log(response.data.meals);
             setRecommended(response.data.meals[0]);
         })
         .catch(error => console.log(error));
@@ -36,11 +35,9 @@ const Search = (props) => {
     
     return(
         <div className="search">
-        <h2>Our recommendation:</h2>
+        <h3>Our recommendation:</h3>
         <div className="search__header">
-            <div className="search__recommended">
-            {recommended ? <SingleCategory className="recommended" title={recommended.strMeal} image={recommended.strMealThumb} link={`/category/${recommended.strCategory}/${recommended.idMeal}`} /> : 'Picking our recommendation...'}
-            </div>
+            {recommended ? <Recommended className="recommended" title={recommended.strMeal} image={recommended.strMealThumb} link={`/category/${recommended.strCategory}/${recommended.idMeal}`} /> : 'Picking our recommendation...'}
             <div className="search__dropdown">
                 <Dropdown label="Choose Category:" options={['', 'Beef', 'Chicken', 'Dessert', 'Lamb', 'Pasta', 'Vegan']} dropdownHandler={dropdownHandler}/>
             </div>

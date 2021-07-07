@@ -4,13 +4,30 @@
 .single-meal {
   padding: 2rem 5rem;
 
+  @include respond(phone) {
+    padding: 1rem 2.4rem;
+  }
+
   h1 {
     margin-bottom: 3rem;
+
+    @include respond(phone) {
+      text-align: center;
+    }
   }
 
   &__preview {
     display: flex;
     justify-content: space-between;
+
+    @include respond(tab-small) {
+      flex-direction: column;
+    }
+
+    @include respond(phone) {
+      justify-content: center;
+      align-items: center;
+    }
 
     &-image {
       width: 35%;
@@ -20,6 +37,24 @@
       background-repeat: no-repeat;
       border-radius: 5px;
       transition: all 0.3s ease-in-out;
+
+      @include respond(tab-large) {
+        width: 38%;
+      }
+
+      @include respond(tab-medium) {
+        width: 48%;
+      }
+
+      @include respond(tab-small) {
+        width: 60%;
+        padding-top: 50%;
+        margin-bottom: 3rem;
+      }
+
+      @include respond(phone) {
+        width: 80%;
+      }
 
       &:hover {
         opacity: 0.8;
@@ -32,6 +67,18 @@
       border-radius: 3px;
       background-color: $color-blue-light-2;
       padding: 1.2rem;
+
+      @include respond(tab-medium) {
+        width: 48%;
+      }
+
+      @include respond(tab-small) {
+        width: 80%;
+      }
+
+      @include respond(phone) {
+        width: 90%;
+      }
 
       span {
         font-weight: 700;
@@ -52,6 +99,12 @@
   &__ingredients {
     display: flex;
     margin: 3rem 0;
+
+    @include respond(phone) {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
 
     div {
       &:not(:last-child) {

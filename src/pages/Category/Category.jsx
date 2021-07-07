@@ -6,8 +6,8 @@ import axios from '../../axios/axios';
 
 import './Category.scss';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import SingleCategory from '../../components/CategoriesPreview/SingleCategory/SingleCategory';
 import Meals from '../../components/Meals/Meals';
+import Recommended from '../../components/Recommended/Recommended';
 
 const Category = (props) => {
     const categoryTitle = props.match.params.title;
@@ -35,18 +35,17 @@ const Category = (props) => {
 
     return (
         <div className="category">
-            <h1>{categoryTitle}</h1>
+            <h3>Our recommendation:</h3>
             <div className="category__header">
-                <div className="category__recommended">
-                    <h3>Our recommendation:</h3>
+                {/* <div className="category__recommended"> */}
                     { recommendedMeal ? 
-                    <SingleCategory
+                    <Recommended
                         className="recommended" 
                         title={recommendedMeal.strMeal}
                         image={recommendedMeal.strMealThumb} 
                         link={`/category/${categoryTitle}/${recommendedMeal.idMeal}`}
                     /> : 'Picking our recommendation...' }
-                </div>
+                {/* </div> */}
                 <SearchBar
                     className="category__search"
                     value={searchTerm}
@@ -54,6 +53,7 @@ const Category = (props) => {
                     handleChange={handleChange}
                 />
             </div>
+            <h1>{categoryTitle}</h1>
             {filteredMeals ? <Meals meals={filteredMeals} category={categoryTitle} /> : <h1>No meals that match your search</h1>}
         </div>
         
