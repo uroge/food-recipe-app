@@ -30,6 +30,9 @@ const Category = (props) => {
 
     const recommendedMeal = mealsFromCategory[0];
 
+    const filteredMeals = mealsFromCategory.filter(meal => 
+        meal.strMeal.toLowerCase().includes(searchTerm.toLowerCase()));
+
     return (
         <div className="category">
             <h1>{categoryTitle}</h1>
@@ -51,7 +54,7 @@ const Category = (props) => {
                     handleChange={handleChange}
                 />
             </div>
-            {mealsFromCategory ? <Meals meals={mealsFromCategory} category={categoryTitle} /> : null}
+            {filteredMeals ? <Meals meals={filteredMeals} category={categoryTitle} /> : <h1>No meals that match your search</h1>}
         </div>
         
     );

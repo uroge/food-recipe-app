@@ -1,0 +1,28 @@
+@import "../../sass/base/variables";
+@import "../../sass/base/mixins";
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 1rem;
+  }
+
+  select {
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-color: $color-blue-light-2;
+    border: 1px solid $color-secondary;
+    font-size: 1.6rem;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  option {
+    font-size: 1.6rem;
+  }
+}

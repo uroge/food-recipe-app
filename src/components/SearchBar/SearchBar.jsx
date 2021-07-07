@@ -9,7 +9,7 @@ const SearchBar = ({ placeholder, value, handleChange }) => (
         placeholder={placeholder}
         value={value}
         type="text"
-        onChange={handleChange}
+        onChange={(event) => handleChange(event)}
         />
     </div>
 );

@@ -20,3 +20,17 @@ export const getSingleMeal = meal => {
         payload: meal
     }
 };
+
+export const getSimilarMeals = similarMeals => {
+    return {
+        type: actionTypes.GET_SIMILAR_MEALS,
+        payload: similarMeals
+    }
+};
+
+export const getSearchedMeals = searchedMeals => {
+    return {
+        type: actionTypes.GET_SEARCHED_MEALS,
+        payload: searchedMeals
+    }
+};

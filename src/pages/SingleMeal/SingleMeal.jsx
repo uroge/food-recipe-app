@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSingleMeal } from '../../store/actions/actions';
 import axios from '../../axios/axios';
 
+import SimilarMeals from '../../components/SimilarMeals/SimilarMeals';
+
 const SingleMeal = (props) => {
     const dispatch = useDispatch();
     const singleMeal = useSelector(state => state.singleMeal);
@@ -24,7 +26,7 @@ const SingleMeal = (props) => {
         <div className="single-meal__preview">
         <div className="single-meal__preview-image" style={{backgroundImage: `url(${ singleMeal ? singleMeal.strMealThumb : ''})`}}/>
             <div className="single-meal__preview-description">
-                <h3>{singleMeal && singleMeal.strTags ? '#' + singleMeal.strTags.split(',').join(' #') : 'Loading...'}</h3>
+                <h3>{singleMeal && singleMeal.strTags ? '#' + singleMeal.strTags.split(',').join(' #') : ''}</h3>
                 <p><span>Category: </span>{singleMeal ? singleMeal.strCategory : 'Loading...'}</p>
                 <p><span>Country: </span> {singleMeal ? singleMeal.strArea : 'Loading...'}</p>
                 <p><span>Video: </span><a className="video" href={singleMeal ? singleMeal.strYoutube : '#'} rel="noreferrer" target="_blank">{singleMeal ? singleMeal.strYoutube : 'Loading...'}</a></p>
@@ -48,8 +50,8 @@ const SingleMeal = (props) => {
             </div>
         </div>
         <div className="single-meal__similar">
-           <h2 className="mb-5">Similar Meals</h2>
-            {/* <SimilarMeals category={this.state.category}/> */}
+           <h2 className="mb-5">Similar Meals:</h2>
+            <SimilarMeals category={ props.match.params.title }/>
         </div>
         </div>
     );

@@ -3,7 +3,9 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     foodCategories: [],
     mealsFromCategory: [],
-    singleMeal: null
+    singleMeal: null,
+    similarMeals: [],
+    searchedMeals: []
 }
 
 const foodReducer = (state = initialState, action) => {
@@ -22,6 +24,16 @@ const foodReducer = (state = initialState, action) => {
             return {
                 ...state,
                 singleMeal: action.payload
+            }
+        case actionTypes.GET_SIMILAR_MEALS:
+            return {
+                ...state,
+                similarMeals: [...action.payload]
+            }
+        case actionTypes.GET_SEARCHED_MEALS:
+            return {
+                ...state,
+                searchedMeals: [...action.payload]
             }
         default:
             return state;

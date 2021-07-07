@@ -67,6 +67,12 @@
       margin-bottom: 15px;
       font-size: 1.8rem;
       line-height: 1.9rem;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $color-blue-light-1;
+        transform: scale(1.02);
+      }
     }
   }
 }
