@@ -34,3 +34,15 @@ export const getSearchedMeals = searchedMeals => {
         payload: searchedMeals
     }
 };
+
+export const setLogin = () => {
+    return {
+        type: actionTypes.LOGIN
+    }
+};
+
+export const setLogout = () => {
+    return {
+        type: actionTypes.LOGOUT
+    }
+};

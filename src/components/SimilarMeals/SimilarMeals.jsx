@@ -8,7 +8,7 @@ import axios from '../../axios/axios';
 import SingleCategory from '../CategoriesPreview/SingleCategory/SingleCategory';
 
 const SimilarMeals = ({ category }) => {
-    const similarMeals = useSelector(state => state.similarMeals);
+    const similarMeals = useSelector(state => state.food.similarMeals);
     const dispatch = useDispatch();
 
     useEffect(() => {

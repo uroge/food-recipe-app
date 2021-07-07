@@ -11,7 +11,7 @@ import AboutUs from '../../components/AboutUs/AboutUs';
 import CustomForm from '../../components/CustomForm/CustomForm';
 
 const Home = (props) => {
-    const foodCategories = useSelector(state => state.foodCategories);
+    const foodCategories = useSelector(state => state.food.foodCategories);
     const dispatch = useDispatch();
     const categoriesRef = React.createRef();
 

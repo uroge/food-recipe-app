@@ -11,7 +11,7 @@ import Recommended from '../../components/Recommended/Recommended';
 
 const Search = (props) => {
     const searchTerm = props.match.params.searchTerm;
-    const searchedMeals = useSelector(state => state.searchedMeals);
+    const searchedMeals = useSelector(state => state.food.searchedMeals);
     const [recommended, setRecommended] = useState(null);
     const [category, setCategory] = useState('');
 

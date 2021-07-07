@@ -11,7 +11,7 @@ import Recommended from '../../components/Recommended/Recommended';
 
 const Category = (props) => {
     const categoryTitle = props.match.params.title;
-    const mealsFromCategory = useSelector(state => state.mealsFromCategory);
+    const mealsFromCategory = useSelector(state => state.food.mealsFromCategory);
     const dispatch = useDispatch();
 
     const [searchTerm, setSearchTerm] = useState('');

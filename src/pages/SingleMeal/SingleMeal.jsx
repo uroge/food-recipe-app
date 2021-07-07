@@ -9,7 +9,7 @@ import SimilarMeals from '../../components/SimilarMeals/SimilarMeals';
 
 const SingleMeal = (props) => {
     const dispatch = useDispatch();
-    const singleMeal = useSelector(state => state.singleMeal);
+    const singleMeal = useSelector(state => state.food.singleMeal);
     const mealId = props.match.params.id;
 
     useEffect(() => {

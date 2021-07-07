@@ -6,9 +6,9 @@ import './sass/main.scss';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import foodReducer from './store/reducers/foodReducer';
+import rootReducer from './store/reducers/rootReducer';
 
-const store = createStore(foodReducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
