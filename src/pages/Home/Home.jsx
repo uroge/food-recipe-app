@@ -9,6 +9,7 @@ import HomeHeader from '../../components/HomeHeader/HomeHeader';
 import CategoriesPreview from '../../components/CategoriesPreview/CategoriesPreview';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import CustomForm from '../../components/CustomForm/CustomForm';
+import Loader from '../../components/Loader/Loader';
 
 const Home = (props) => {
     const foodCategories = useSelector(state => state.food.foodCategories);
@@ -32,7 +33,8 @@ const Home = (props) => {
     return (
         <div className="homepage">
             <HomeHeader scroll={scrollToCategories}/>
-            { foodCategories ? <CategoriesPreview ref={categoriesRef} categories={foodCategories}/> : null}
+            { foodCategories ? <CategoriesPreview ref={categoriesRef} categories={foodCategories}/> : 
+            <Loader />}
             <AboutUs ref={props.refAbout}/>
             <CustomForm
             text='Contact Us' />

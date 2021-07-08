@@ -8,6 +8,7 @@ import './Category.scss';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Meals from '../../components/Meals/Meals';
 import Recommended from '../../components/Recommended/Recommended';
+import Loader from '../../components/Loader/Loader';
 
 const Category = (props) => {
     const categoryTitle = props.match.params.title;
@@ -37,15 +38,13 @@ const Category = (props) => {
         <div className="category">
             <h3>Our recommendation:</h3>
             <div className="category__header">
-                {/* <div className="category__recommended"> */}
-                    { recommendedMeal ? 
-                    <Recommended
-                        className="recommended" 
-                        title={recommendedMeal.strMeal}
-                        image={recommendedMeal.strMealThumb} 
-                        link={`/category/${categoryTitle}/${recommendedMeal.idMeal}`}
-                    /> : 'Picking our recommendation...' }
-                {/* </div> */}
+                { recommendedMeal ? 
+                <Recommended
+                    className="recommended" 
+                    title={recommendedMeal.strMeal}
+                    image={recommendedMeal.strMealThumb} 
+                    link={`/category/${categoryTitle}/${recommendedMeal.idMeal}`}
+                /> : <Loader /> }
                 <SearchBar
                     className="category__search"
                     value={searchTerm}
@@ -53,8 +52,8 @@ const Category = (props) => {
                     handleChange={handleChange}
                 />
             </div>
-            <h1>{categoryTitle}</h1>
-            {filteredMeals ? <Meals meals={filteredMeals} category={categoryTitle} /> : <h1>No meals that match your search</h1>}
+            <h1>{ categoryTitle }</h1>
+            { filteredMeals ? <Meals meals={filteredMeals} category={categoryTitle} /> : <h1>No meals that match your search</h1> }
         </div>
         
     );

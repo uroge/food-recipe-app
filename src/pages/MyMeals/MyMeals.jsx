@@ -7,6 +7,7 @@ import axios from '../../axios/axios';
 import './MyMeals.scss';
 
 import Meals from '../../components/Meals/Meals';
+import Loader from '../../components/Loader/Loader';
 
 const MyMeals = (props) => {
     const myMeals = useSelector(state => state.food.myMeals);
@@ -27,7 +28,7 @@ const MyMeals = (props) => {
         <div className="my-meals">
             <h1>My Meals:</h1>
             {myMeals ? <Meals meals={myMeals} category="Seafood" />
-            : 'Loading...'}
+            : <Loader />}
             { !isLoggedIn ? <Redirect to="/" /> : null}
         </div>
 

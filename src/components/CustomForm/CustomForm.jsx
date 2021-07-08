@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import './CustomForm.scss';
 import CustomButton from '../CustomButton/CustomButton';
+import Modal from '../Modal/Modal';
 
 const CustomForm = ((props, ref) => {
     const [state, setState] = useState({
@@ -11,6 +12,9 @@ const CustomForm = ((props, ref) => {
         message: ''
     });
 
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+
     const handleChange = (event) => {
         const value = event.target.value;
         setState({
@@ -19,13 +23,9 @@ const CustomForm = ((props, ref) => {
         });
     }
 
-    // const [show, setShow] = useState(false);
-  
-    // const handleClose = () => setShow(false);
-
     const validateEmail = (email) => {
-        const re =  /\S+@\S+\.\S+/;
-        return re.test(email);
+        const regex =  /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        return regex.test(email);
     }
 
     const clearStorage = () => {
@@ -35,17 +35,23 @@ const CustomForm = ((props, ref) => {
         localStorage.removeItem('message');
     }
 
+    const closeModal = () => {
+        setModalOpen(false);
+    }
+
     const onFormSubmit = (event) => {
         event.preventDefault();
         clearStorage();
 
         if(state.firstName === '' || state.lastName === '' || state.email === '' || state.message === '') {
-            alert('You should fill all the inputs!');
+            setModalMessage('You should fill all the inputs!');
+            setModalOpen(true);
             return;
         }
 
         if(!validateEmail(state.email)) {
-            alert('Please enter a valid email');
+            setModalMessage('Please enter a valid email');
+            setModalOpen(true);
             return;
         }
 
@@ -61,7 +67,8 @@ const CustomForm = ((props, ref) => {
             message: ''
         });
 
-        // setShow(true);
+        setModalMessage('Your message was sent');
+        setModalOpen(true);
     }
 
     return (
@@ -102,6 +109,8 @@ const CustomForm = ((props, ref) => {
             <CustomButton className="form__button" buttonText="Send"/>
             </form>
         </div>
+        { isModalOpen ? <Modal message={modalMessage} closeModal={closeModal} /> 
+        : null }
     </>
     );
 });
