@@ -22,7 +22,11 @@ const Search = (props) => {
         axios.get(`/search.php?s=${searchTerm}`)
         .then(response => {
             dispatch(getSearchedMeals(response.data.meals));
-            setRecommended(response.data.meals[0]);
+            let recommendedMeal = Math.floor((Math.random() * response.data.meals.length) + 1);
+
+            if(response.data.meals.length === 1) recommendedMeal = 0;
+
+            setRecommended(response.data.meals[recommendedMeal]);
         })
         .catch(error => console.log(error));
     }, [searchTerm, dispatch]);
@@ -32,8 +36,8 @@ const Search = (props) => {
     }
 
     const filteredMeals = searchedMeals.filter(meal => 
-        meal.strCategory.toLowerCase().includes(category.toLocaleLowerCase()));
-    
+        meal.strCategory.toLowerCase().includes(category.toLowerCase()));
+
     return(
         <div className="search">
         <h3>Our recommendation:</h3>
@@ -44,7 +48,7 @@ const Search = (props) => {
             </div>
         </div>
         <h1 className="title">Search Results:</h1>
-        { searchedMeals.length ? <Meals meals={filteredMeals} category={searchedMeals[0].strCategory}/> : 'Couldn\' find meal you wanted' }
+        { filteredMeals.length ? <Meals meals={filteredMeals} category={filteredMeals[0].strCategory}/> : 'Couldn\' find meal you wanted' }
         </div>
     );
 }

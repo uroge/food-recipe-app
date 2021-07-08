@@ -6,7 +6,7 @@ const Meals = (props) => (
     <div className="meals">
         <div className="meals__preview">
         {
-            props.meals.slice(1, props.meals.length).map(meal => (
+            props.meals.map(meal => (
                 <SingleCategory 
                 key={meal.idMeal} 
                 title={meal.strMeal}

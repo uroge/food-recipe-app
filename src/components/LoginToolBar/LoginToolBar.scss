@@ -1,4 +1,5 @@
 @import "../../sass/base/variables";
+@import "../../sass/base/mixins";
 
 .login-toolbar {
   position: absolute;
@@ -10,10 +11,39 @@
   padding: 20px;
   border: 1px solid $color-blue;
   background-color: $color-primary;
-  top: 10%;
+  top: 12%;
   right: 12%;
   z-index: 5;
   border-radius: 3px;
+
+  @include respond(tab-large) {
+    top: 13%;
+    right: 13%;
+    width: 20%;
+  }
+
+  @include respond(tab-medium) {
+    right: 17%;
+    width: 25%;
+  }
+
+  @include respond(tab-x-small) {
+    top: 13%;
+    right: 20%;
+    width: 30%;
+  }
+
+  @include respond(phone) {
+    top: 20%;
+    left: 5%;
+    width: 40%;
+  }
+
+  @include respond(phone-small) {
+    top: 20%;
+    left: 5%;
+    width: 60%;
+  }
 
   ::placeholder {
     color: $color-blue;
