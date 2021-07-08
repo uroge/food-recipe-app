@@ -5,3 +5,4 @@ export const GET_SIMILAR_MEALS = 'GET_SIMILAR_MEALS';
 export const GET_SEARCHED_MEALS = 'GET_SEARCHED_MEALS';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const GET_MY_MEALS = 'GET_MY_MEALS';

@@ -27,7 +27,6 @@ const Home = (props) => {
 
     const scrollToCategories = () => {
         categoriesRef.current.scrollIntoView();
-        console.log(foodCategories);
     };
 
     return (

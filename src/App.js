@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Category from './pages/Category/Category';
 import SingleMeal from './pages/SingleMeal/SingleMeal';
 import Search from './pages/Search/Search';
+import MyMeals from './pages/MyMeals/MyMeals';
 
 import history from './history';
 
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/category/:title" exact component={Category} />
         <Route path="/category/:title/:id" exact component={SingleMeal} />
         <Route path="/search/:searchTerm" exact component={Search} />
+        <Route path="/my-meals" exact component={MyMeals} />
       </Switch>
       <Footer />
     </Router>

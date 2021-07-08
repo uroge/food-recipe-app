@@ -5,7 +5,8 @@ const initialState = {
     mealsFromCategory: [],
     singleMeal: null,
     similarMeals: [],
-    searchedMeals: []
+    searchedMeals: [],
+    myMeals: []
 }
 
 const foodReducer = (state = initialState, action) => {
@@ -34,6 +35,11 @@ const foodReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchedMeals: [...action.payload]
+            }
+        case actionTypes.GET_MY_MEALS:
+            return {
+                ...state,
+                myMeals: [...action.payload]
             }
         default:
             return state;

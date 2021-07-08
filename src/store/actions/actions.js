@@ -46,3 +46,10 @@ export const setLogout = () => {
         type: actionTypes.LOGOUT
     }
 };
+
+export const getMyMeals = myMeals => {
+    return {
+        type: actionTypes.GET_MY_MEALS,
+        payload: myMeals
+    }
+}

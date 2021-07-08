@@ -1,0 +1,16 @@
+@import "../../sass/base/variables";
+@import "../../sass/base/mixins";
+
+.my-meals {
+  padding: 2rem 5rem;
+  min-height: calc(100vh - 252px);
+
+  @include respond(phone) {
+    padding: 1rem 2.4rem;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+}
