@@ -25,6 +25,10 @@ const Category = (props) => {
         .catch(error => console.log(error));
     }, [categoryTitle, dispatch]);
 
+    /**
+     * Sets search term in the state based on what user typed
+     * @param {FormEvent} event - chahnge event
+     */
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
     }

@@ -4,7 +4,7 @@ import './CustomForm.scss';
 import CustomButton from '../CustomButton/CustomButton';
 import Modal from '../Modal/Modal';
 
-const CustomForm = ((props, ref) => {
+const CustomForm = React.forwardRef((props, ref) => {
     const [state, setState] = useState({
         firstName: '',
         lastName: '',
@@ -15,6 +15,10 @@ const CustomForm = ((props, ref) => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
 
+    /**
+     * Sets state values based on values user entered
+     * @param {FormEvent} event - change event
+     */
     const handleChange = (event) => {
         const value = event.target.value;
         setState({
@@ -23,11 +27,19 @@ const CustomForm = ((props, ref) => {
         });
     }
 
+    /**
+     * Validates user email
+     * @param {String} email user email
+     * @returns true or false based on wether email is valid
+    */
     const validateEmail = (email) => {
         const regex =  /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
         return regex.test(email);
     }
 
+    /**
+     * Clears data from localStorage
+    */
     const clearStorage = () => {
         localStorage.removeItem('firstName');
         localStorage.removeItem('lastName');
@@ -35,10 +47,18 @@ const CustomForm = ((props, ref) => {
         localStorage.removeItem('message');
     }
 
+    /**
+     * Closes modal
+    */
     const closeModal = () => {
         setModalOpen(false);
     }
 
+    /**
+     * Validates contact form, displays modal based
+     * with message and stores data to localStorage
+     * @param {FormEvent} event
+     */
     const onFormSubmit = (event) => {
         event.preventDefault();
         clearStorage();
@@ -73,7 +93,7 @@ const CustomForm = ((props, ref) => {
 
     return (
     <>
-        <div className="form">
+        <div className="form" ref={ref}>
             <form onSubmit={(event) => onFormSubmit(event)}>
             <h1>{props.text}</h1> 
                 <input 

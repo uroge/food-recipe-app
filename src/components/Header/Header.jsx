@@ -9,12 +9,15 @@ import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import LoginToolBar from '../LoginToolBar/LoginToolBar';
+import Modal from '../Modal/Modal';
 import history from '../../history';
 
 const Header = (props) => {
     const [term, setTerm] = useState('');
     const [isLoginOpen, setLoginOpen] = useState(false);
     const [isHomePage, setHomePage] = useState(history.location.pathname === '/');
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
 
     const isUserLoggedIn = useSelector(state => state.user.isUserLoggedIn);
     const dispatch = useDispatch();
@@ -29,13 +32,32 @@ const Header = (props) => {
           });
     }, []);
 
+    /**
+     * Redirects user to page on which searched meal is displayed
+     * @param {FormEvent} event - submit event
+     */
     const onSearchSubmit = (event) => {
         event.preventDefault();
-        history.push(`/search/${term}`);
+        if(term !== '') {
+            history.push(`/search/${term}`);
+        } else {
+            setModalOpen(true);
+            setModalMessage('Input field is empty');
+        }
     }
 
+    /**
+     * Closes login modal
+    */
     const closeLogin = () => {
         setLoginOpen(false);
+    }
+
+    /**
+     * Closes modal
+    */
+    const closeModal = () => {
+        setModalOpen(false);
     }
 
     return (
@@ -61,7 +83,8 @@ const Header = (props) => {
 
                 { isUserLoggedIn ? <Link to="/my-meals" className="header__link">My Meals</Link>
                 : null }
-                
+                { isModalOpen ? <Modal message={modalMessage} closeModal={closeModal} />
+                : null }
             </div>
         </div>
     );

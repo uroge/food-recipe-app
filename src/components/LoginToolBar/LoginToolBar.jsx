@@ -14,16 +14,28 @@ const LoginToolBar = (props) => {
     const [modalMessage, setModalMessage] = useState('');
 
     const dispatch = useDispatch();
-
+    
+    /**
+     * Validates user email
+     * @param {String} email user email
+     * @returns true or false based on wether email is valid
+    */
     const validateEmail = email => {
         const regex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
         return regex.test(email);
     }
 
+    /**
+     * Validates user email and password and displays modal
+     * @param {FormEvent} event - submit event
+    */
     const onLoginSubmit = (event) => {
         event.preventDefault();
 
-        if(!email){
+        if(!email && !password) {
+            setModalMessage('Please enter your data');
+            setModalOpen(true);
+        } else if(!email){
             setModalMessage('Please enter your email');
             setModalOpen(true);
         } else if (!validateEmail(email)){
@@ -40,6 +52,9 @@ const LoginToolBar = (props) => {
         }
     }
 
+    /**
+     * Closes modal
+    */
     const closeModal = () => {
         setModalOpen(false);
     }

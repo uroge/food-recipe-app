@@ -37,6 +37,7 @@ const Home = (props) => {
             <Loader />}
             <AboutUs ref={props.refAbout}/>
             <CustomForm
+            ref={props.refContact}
             text='Contact Us' />
         </div>
     );

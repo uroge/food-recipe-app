@@ -18,6 +18,10 @@ const SimilarMeals = ({ category }) => {
         });
     }, [category, dispatch]);
 
+    /**
+     * 
+     * @returns SingleCategory component with similar meals values
+     */
     const renderSimilarMeals = () => {
         return similarMeals.map(meal => {
             return <SingleCategory 
