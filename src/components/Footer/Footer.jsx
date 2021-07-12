@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.scss';
 
-import { SiIfood } from 'react-icons/si';
+import { GiFoodTruck } from 'react-icons/gi';
 import { FaFacebook, FaInstagramSquare } from 'react-icons/fa';
 import { RiCopyrightLine } from 'react-icons/ri';
 
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer">
             <div className="footer__content">
                 <div className="footer__logo-container">
-                    <SiIfood className="footer__logo"/>
+                    <GiFoodTruck className="footer__logo"/>
                 </div>
                 <div className="footer__icons">
                     <a href="https://facebook.com" className="footer__icon" target="_blank" rel="noreferrer"><FaFacebook className="footer__icon-facebook" /></a>

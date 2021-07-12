@@ -18,7 +18,7 @@ const CustomForm = React.forwardRef((props, ref) => {
     /**
      * Sets state values based on values user entered
      * @param {FormEvent} event - change event
-     */
+    */
     const handleChange = (event) => {
         const value = event.target.value;
         setState({
