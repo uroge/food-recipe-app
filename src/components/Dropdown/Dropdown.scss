@@ -12,9 +12,10 @@
   select {
     padding: 0.5rem 1rem;
     border-radius: 3px;
-    background-color: $color-blue-light-2;
-    border: 1px solid $color-secondary;
+    background-color: $color-grey;
+    border: 1px solid $color-brown-2;
     font-size: 1.6rem;
+    color: $color-brown-2;
 
     &:focus,
     &:active {
@@ -24,5 +25,6 @@
 
   option {
     font-size: 1.6rem;
+    color: $color-brown-2;
   }
 }

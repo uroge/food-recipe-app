@@ -14,8 +14,8 @@ const HomeHeader = (props) => {
             <div className="home-header__image" 
                 style={{backgroundImage: `linear-gradient(
                 -50deg,
-                rgba(220, 139, 48, 0.9) 0%,
-                rgba(220, 139, 48, 0.6) 2%, 
+                rgba(71, 53, 49, 0.2) 0%,
+                rgba(63, 41, 35, 0.9) 2%, 
                 transparent 70%),
                 url(${image})`}}>
             </div>

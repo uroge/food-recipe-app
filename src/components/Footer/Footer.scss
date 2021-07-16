@@ -3,7 +3,7 @@
 .footer {
   padding: 2.5rem 5rem;
   margin-top: 2rem;
-  background-color: $color-secondary;
+  background-color: $color-brown-2;
 
   &__content {
     width: 100%;
@@ -14,7 +14,7 @@
 
   &__logo {
     font-size: 5rem;
-    color: $color-blue-light-2;
+    color: $color-primary;
   }
 
   &__icons {
@@ -25,7 +25,7 @@
 
   &__icon {
     font-size: 3rem;
-    color: $color-blue-light-2;
+    color: $color-primary;
     &:not(:last-child) {
       margin-right: 2rem;
     }
@@ -35,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    color: $color-primary;
     span {
       display: flex;
       align-items: center;

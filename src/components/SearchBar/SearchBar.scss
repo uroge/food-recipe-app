@@ -1,9 +1,9 @@
 @import "../../sass/base/variables";
 
 .search-input {
-  border: 1px solid $color-blue;
+  border: 1px solid $color-primary;
   border-radius: 3px;
-  background-color: $color-blue-light-2;
+  background-color: $color-grey;
   display: flex;
   align-items: center;
   padding: 1.6rem;
@@ -11,12 +11,12 @@
   height: 4rem;
 
   ::placeholder {
-    color: $color-blue;
+    color: $color-brown-2;
     font-family: inherit;
   }
 
   input {
-    color: $color-blue;
+    color: $color-brown-2;
     font-family: inherit;
     transition: all 0.2s linear;
     outline: none;
@@ -24,7 +24,7 @@
     padding-left: 1rem;
     border: none;
     flex: 1;
-    background-color: $color-blue-light-2;
+    background-color: $color-grey;
     width: 100%;
 
     &:focus {
@@ -34,6 +34,6 @@
 
   &__icon {
     font-size: 1.8rem;
-    color: $color-blue;
+    color: $color-brown-2;
   }
 }

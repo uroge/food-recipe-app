@@ -63,9 +63,9 @@
 
     &-description {
       width: 60%;
-      border: 1px solid $color-blue-light-1;
+      border: 1px solid $color-brown-2;
       border-radius: 3px;
-      background-color: $color-blue-light-2;
+      background-color: $color-grey-2;
       padding: 1.2rem;
 
       @include respond(tab-medium) {
@@ -86,11 +86,11 @@
 
       .video {
         text-decoration: none;
-        color: $color-blue-light-1;
+        color: $color-red;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          color: $color-secondary;
+          color: $color-brown-1;
         }
       }
     }

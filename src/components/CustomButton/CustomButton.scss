@@ -2,16 +2,17 @@
 
 .custom-button {
   padding: 1rem 2rem;
-  background-color: $color-blue-light-2;
-  border: 1px solid $color-blue;
+  background-color: $color-red;
+  border: 2px solid $color-brown-2;
   border-radius: 3px;
-  color: $color-blue;
+  color: $color-primary;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
     transform: translateY(-1px);
-    background-color: $color-blue-light-1;
+    background-color: $color-brown-2;
+    border: 2px solid $color-red;
   }
 
   &:active,

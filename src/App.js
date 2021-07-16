@@ -25,7 +25,7 @@ const App = () => {
       aboutScroll={scrollToAbout}
       contactScroll={scrollToContact} />
       <Switch>
-        <Route path="/" exact render={() => (<Home refAbout={aboutRef} refContact={contactRef}/>)} />
+        <Route path="/" exact render={() => (<Home refAbout={aboutRef} refContact={contactRef} />)} />
         <Route path="/category/:title" exact component={Category} />
         <Route path="/category/:title/:id" exact component={SingleMeal} />
         <Route path="/search/:searchTerm" exact component={Search} />

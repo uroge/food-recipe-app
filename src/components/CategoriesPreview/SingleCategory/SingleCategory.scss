@@ -6,7 +6,7 @@
   height: 0;
   width: 22%;
   padding-top: 16%;
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
 
   @include respond(tab-medium) {
     width: 31%;
@@ -41,12 +41,12 @@
 
   &__link {
     text-decoration: none;
-    color: $color-blue;
+    color: $color-brown-2;
     transition: all 0.3s ease-in-out;
 
     &:active,
     &:visited {
-      color: $color-blue;
+      color: $color-brown-2;
     }
 
     &:hover {
@@ -70,7 +70,7 @@
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        color: $color-blue-light-1;
+        color: $color-red;
         transform: scale(1.02);
       }
     }
