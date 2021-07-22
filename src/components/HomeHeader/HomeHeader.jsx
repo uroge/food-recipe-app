@@ -9,7 +9,7 @@ const HomeHeader = (props) => {
             <div className="home-header__text">
                 <h1 className="home-header__title">Food recipes</h1>
                 <p className="home-header__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci incidunt eaque maiores mollitia molestiae suscipit, enim a cum sunt ipsa, dolor aliquam facilis consequuntur nobis!</p>
-                <a href="#categories"><CustomButton onButtonClick={props.scroll} buttonText="Categories" /></a> 
+                <CustomButton onButtonClick={props.scroll} buttonText="Categories" />
             </div>
             <div className="home-header__image" 
                 style={{backgroundImage: `linear-gradient(
