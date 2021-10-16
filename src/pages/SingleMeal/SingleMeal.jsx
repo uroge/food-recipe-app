@@ -17,6 +17,7 @@ const SingleMeal = (props) => {
         axios.get(`/lookup.php?i=${mealId}`)
         .then(response => {
             dispatch(getSingleMeal(response.data.meals[0]));
+            console.log(response.data)
         })
         .catch(error => console.log(error));
     }, [mealId, dispatch]);
