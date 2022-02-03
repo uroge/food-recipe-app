@@ -23,9 +23,15 @@ const Category = (props) => {
     axios
       .get(`/filter.php?c=${categoryTitle}`)
       .then((response) => {
-        dispatch(getMealsFromCategory(response.data.meals.slice(0, 20)));
+        if (response.data.meals) {
+          dispatch(getMealsFromCategory(response.data.meals.slice(0, 20)));
+        } else {
+          getMealsFromCategory([]);
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error.response);
+      });
   }, [categoryTitle, dispatch]);
 
   /**
@@ -44,7 +50,7 @@ const Category = (props) => {
 
   return (
     <div className="category">
-      <h3>Our recommendation:</h3>
+      <h3>{recommendedMeal ? 'Our recommendation:' : 'Not found'}</h3>
       <div className="category__header">
         {recommendedMeal ? (
           <Recommended
@@ -54,7 +60,12 @@ const Category = (props) => {
             link={`/category/${categoryTitle}/${recommendedMeal.idMeal}`}
           />
         ) : (
-          <Loader />
+          <Recommended
+            className="recommended"
+            title=""
+            image="https://cdn.dribbble.com/users/1012566/screenshots/4187820/topic-2.jpg"
+            link={`/`}
+          />
         )}
         <SearchBar
           className="category__search"
@@ -64,10 +75,10 @@ const Category = (props) => {
         />
       </div>
       <h1>{categoryTitle}</h1>
-      {filteredMeals ? (
+      {filteredMeals.length ? (
         <Meals meals={filteredMeals} category={categoryTitle} />
       ) : (
-        <h1>No meals that match your search</h1>
+        <h3>No meals that match your search</h3>
       )}
     </div>
   );
