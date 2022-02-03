@@ -53,48 +53,59 @@ const Search = (props) => {
   );
 
   return (
-    <div className="search">
-      <h3>{recommended ? 'Our recommendation:' : 'Not found'}</h3>
-      <div className="search__header">
-        {recommended ? (
-          <Recommended
-            className="recommended"
-            title={recommended.strMeal}
-            image={recommended.strMealThumb}
-            link={`/category/${recommended.strCategory}/${recommended.idMeal}`}
-          />
-        ) : (
-          <Recommended
-            className="recommended"
-            title=""
-            image="https://cdn.dribbble.com/users/1012566/screenshots/4187820/topic-2.jpg"
-            link={`/`}
-          />
-        )}
-        <div className="search__dropdown">
-          <Dropdown
-            label="Choose Category:"
-            options={[
-              '',
-              'Beef',
-              'Chicken',
-              'Dessert',
-              'Lamb',
-              'Pasta',
-              'Vegan',
-            ]}
-            dropdownHandler={dropdownHandler}
-          />
-        </div>
-      </div>
-      <h1 className="title">Search Results:</h1>
+    <>
+      {!loading ? (
+        <>
+          <div className="search">
+            <h3>{recommended ? 'Our recommendation:' : 'Not found'}</h3>
+            <div className="search__header">
+              {recommended ? (
+                <Recommended
+                  className="recommended"
+                  title={recommended.strMeal}
+                  image={recommended.strMealThumb}
+                  link={`/category/${recommended.strCategory}/${recommended.idMeal}`}
+                />
+              ) : (
+                <Recommended
+                  className="recommended"
+                  title=""
+                  image="https://cdn.dribbble.com/users/1012566/screenshots/4187820/topic-2.jpg"
+                  link={`/`}
+                />
+              )}
+              <div className="search__dropdown">
+                <Dropdown
+                  label="Choose Category:"
+                  options={[
+                    '',
+                    'Beef',
+                    'Chicken',
+                    'Dessert',
+                    'Lamb',
+                    'Pasta',
+                    'Vegan',
+                  ]}
+                  dropdownHandler={dropdownHandler}
+                />
+              </div>
+            </div>
+            <h1 className="title">Search Results:</h1>
 
-      {filteredMeals.length && !loading ? (
-        <Meals meals={filteredMeals} category={filteredMeals[0].strCategory} />
+            {filteredMeals.length && !loading ? (
+              <Meals
+                meals={filteredMeals}
+                category={filteredMeals[0].strCategory}
+              />
+            ) : (
+              <div>Couldn't find meal you are looking for</div>
+            )}
+          </div>{' '}
+        </>
       ) : (
-        <div>Couldn't find meal you are looking for</div>
+        <Loader />
       )}
-    </div>
+    </>
   );
 };
 
