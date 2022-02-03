@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 *,
 *::after,
@@ -14,8 +14,9 @@ html {
 }
 
 body {
+  margin: 0;
   box-sizing: border-box;
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-size: $default-font-size;
   background-color: $color-primary;
   color: $color-brown-2;

@@ -20,19 +20,24 @@ const App = () => {
   const scrollToContact = () => contactRef.current.scrollIntoView();
 
   return (
-    <Router history={history}>
-      <Header
-      aboutScroll={scrollToAbout}
-      contactScroll={scrollToContact} />
-      <Switch>
-        <Route path="/" exact render={() => (<Home refAbout={aboutRef} refContact={contactRef} />)} />
-        <Route path="/category/:title" exact component={Category} />
-        <Route path="/category/:title/:id" exact component={SingleMeal} />
-        <Route path="/search/:searchTerm" exact component={Search} />
-        <Route path="/my-meals" exact component={MyMeals} />
-      </Switch>
-      <Footer />
-    </Router>
+      <div className='page-content'>
+        <div className='content-wrap'>
+          <Router history={history}>
+            <Header
+              aboutScroll={scrollToAbout}
+              contactScroll={scrollToContact} />
+              <Switch>
+                <Route path="/" exact render={() => (<Home refAbout={aboutRef} refContact={contactRef} />)} />
+                <Route path="/category/:title" exact component={Category} />
+                <Route path="/category/:title/:id" exact component={SingleMeal} />
+                <Route path="/search/:searchTerm" exact component={Search} />
+                <Route path="/my-meals" exact component={MyMeals} />
+              </Switch>
+          </Router>
+        </div>
+        <Footer />
+      </div>
+        
   );
 }
 

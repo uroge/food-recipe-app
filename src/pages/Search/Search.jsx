@@ -15,21 +15,33 @@ const Search = (props) => {
   const searchedMeals = useSelector((state) => state.food.searchedMeals);
   const [recommended, setRecommended] = useState(null);
   const [category, setCategory] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`/search.php?s=${searchTerm}`)
       .then((response) => {
-        dispatch(getSearchedMeals(response.data.meals));
-        let recommendedMeal = Math.floor(
-          Math.random() * response.data.meals.length + 1
-        );
+        console.log(response);
+        if (response.data.meals) {
+          dispatch(getSearchedMeals(response.data.meals));
+          let recommendedMeal = Math.floor(
+            Math.random() * response.data.meals.length + 1
+          );
 
-        setRecommended(response.data.meals[recommendedMeal]);
+          setRecommended(response.data.meals[recommendedMeal]);
+        } else {
+          dispatch(getSearchedMeals([]));
+          setRecommended(null);
+        }
+        setLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setLoading(false);
+        console.log(error.response);
+      });
   }, [searchTerm, dispatch]);
 
   const dropdownHandler = (event) => {
@@ -42,7 +54,7 @@ const Search = (props) => {
 
   return (
     <div className="search">
-      <h3>Our recommendation:</h3>
+      <h3>{recommended ? 'Our recommendation:' : 'Not found'}</h3>
       <div className="search__header">
         {recommended ? (
           <Recommended
@@ -52,7 +64,12 @@ const Search = (props) => {
             link={`/category/${recommended.strCategory}/${recommended.idMeal}`}
           />
         ) : (
-          <Loader />
+          <Recommended
+            className="recommended"
+            title=""
+            image="https://cdn.dribbble.com/users/1012566/screenshots/4187820/topic-2.jpg"
+            link={`/`}
+          />
         )}
         <div className="search__dropdown">
           <Dropdown
@@ -71,10 +88,11 @@ const Search = (props) => {
         </div>
       </div>
       <h1 className="title">Search Results:</h1>
-      {filteredMeals.length ? (
+
+      {filteredMeals.length && !loading ? (
         <Meals meals={filteredMeals} category={filteredMeals[0].strCategory} />
       ) : (
-        "Couldn' find meal you wanted"
+        <div>Couldn't find meal you are looking for</div>
       )}
     </div>
   );

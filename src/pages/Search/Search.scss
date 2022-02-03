@@ -1,8 +1,9 @@
-@import "../../sass/base/mixins";
-@import "../../sass/base/variables";
+@import '../../sass/base/mixins';
+@import '../../sass/base/variables';
 
 .search {
   padding: 2rem 5rem;
+  position: relative;
 
   @include respond(phone) {
     padding: 1rem 2.4rem;

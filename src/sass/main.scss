@@ -1,4 +1,14 @@
-@import "base/animations";
-@import "base/mixins";
-@import "base/base";
-@import "base/variables";
+@import 'base/animations';
+@import 'base/mixins';
+@import 'base/base';
+@import 'base/variables';
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
